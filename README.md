@@ -2,25 +2,31 @@
 
 The ZeLDA (Zero-Look-Down Access) Layout is a minimalist approach to
 keyboarding.  The philsophy is that you should never have to reach
-more than one key adjacent.  It's still a QWERTY, but seriously
+farther than one adjacent key.  It's still a QWERTY, but seriously
 improved.
 
 See the [2017 Open Source Bridge session](http://opensourcebridge.org/sessions/1988) and [slides](https://www.slideshare.net/secret/3oeMZCprt1mo1e) for
 more details.
 
-It is built completely on open source, leveraging the QMK Firmware
-Toolkit.
+It is built completely on open source, leveraging
+the [QMK Firmware Toolkit](https://docs.qmk.fm/build_environment_setup.html).
 
 Compared to a traditional keyboard, ZeLDA offers the following
 improvements:
 
 - minimal reaching for any key for more comfort
-- unstaggered grid layout
+- unstaggered grid layout (avoid twisted hands)
 - a conservative spacebar: seven thumb-reachable keys! (vs 3)
 - high quality keys -- it's mechanical!
 - tiny desktop footprint
+- symmetry (all modifiers are on both hands)
+- 2-keys-for-1-finger modifier combos (with proper caps)
+- easy chording
+- trivial "sixth finger" palming
 
 ![keymap diagram](https://raw.githubusercontent.com/MicahElliott/ZeLDA/master/keyboard-layout-all.png)
+
+See the [Getting Started Guide](GUIDE.md) for more details.
 
 ## Instructions
 
@@ -40,7 +46,7 @@ improvements:
 1. Use xtweak.sh to enable parens on thumbs
 
 
-## Features
+## More Features
 
 - Full 104-key functionality rolled into 45 keys
 - Custom switches of your choosing
@@ -72,9 +78,9 @@ improvements:
 - Anki picture-cards for memorizing finger combos (future)
 
 Bonus:
-- All keychords are one-handed
+- All keychords can be one-handed
 - How-to usage videos (future)
-- Works well with mouseless browsing plugin
+- Works well with [Firefox mouseless browsing plugin](https://addons.mozilla.org/en-US/firefox/addon/mouseless-browsing/)
 
 ## License
 
