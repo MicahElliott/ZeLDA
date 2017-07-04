@@ -43,7 +43,15 @@ See the [Getting Started Guide](GUIDE.md) for more details.
 
 1. Tweak `keymap.c` to your heart's content
 
-1. Use xtweak.sh to enable parens on thumbs
+1. Use `xtweak.sh` to enable parens on thumbs
+
+
+## Use with TWMs
+
+http://i3wm.org/docs/userguide.html#_default_keybindings
+
+A sample `i3config` file has been provided as a starting point for
+configuring i3.  Its mappings correspond to the diagram.
 
 
 ## More Features
