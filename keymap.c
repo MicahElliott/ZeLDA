@@ -68,6 +68,8 @@ enum planck_keycodes {
 #define ALT_LPRN    ALT_T(KC_LPRN)               // Tap for ), hold for Alt
 #define GUI_LBRC    GUI_T(KC_LBRC)               // Tap for [, hold for Alt
 #define GUI_RBRC    GUI_T(KC_RBRC)               // Tap for ], hold for Alt
+#define GUI_BSLS    GUI_T(KC_BSLS)               // Tap for [, hold for Alt
+#define GUI_PLUS    GUI_T(KC_PLUS)               // Tap for ], hold for Alt
 #define CTL_RBRC    CTL_T(KC_RBRC)               // Tap for ], hold for Alt
 #define CTL_QUOT    CTL_T(KC_QUOT)               // Tap for ', hold for Ctl
 
@@ -114,26 +116,32 @@ enum {TD_SCLN_COLN = 0};
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Qwerty
- * ,-------------------------------------------------------------------------------------------.
- * | Nav Esc|   Q  |   W  |   E   |   R   |   T  |   Y  |   U   |   I   |   O  |   P  | Nav Bsp|
- * |--------+------+------+-------+-------+-------------+-------+-------+------+------+--------|
- * | Ctl Tab|   A  |   S  |   D   |   F   |   G  |   H  |   J   |   K   |   L  |   '" | Ctl Ent|
- * |--------+------+------+-------+-------+------|------+-------+-------+------+------+--------|
- * | Sft ;: |   Z  |   X  |   C   |   V   |   B  |   N  |   M   |   ,<  |   .> |   /? | Sft -_ |
- * |--------+------+------+-------+------ +------+------+-------+-------+------+------+--------|
- * | Sym `  | Comp |   :  |GUI [{ | Alt ( |    Space    | Alt ) |GUI ]} |   +  | Foo  | Sym  = |
- * `-------------------------------------------------------------------------------------------'
- * Only missing: top row syms (!@#$%^&*) plus \ | ` ~ &
+ * ,---------------------------------------------------------------------------------------------.
+ * | Nav Esc|   Q  |   W   |   E   |   R   |   T  |   Y  |   U   |   I   |   O   |   P  | Nav Bsp|
+ * |--------+------+-------+-------+-------+-------------+-------+-------+-------+------+--------|
+ * | Ctl Tab|   A  |   S   |   D   |   F   |   G  |   H  |   J   |   K   |   L   |   '" | Ctl Ent|
+ * |--------+------+-------+-------+-------+------|------+-------+-------+-------+------+--------|
+ * | Sft ;: |   Z  |   X   |   C   |   V   |   B  |   N  |   M   |   ,<  |   .>  |   /? | Sft -_ |
+ * |--------+------+-------+-------+-------+------+------+-------+-------+-------+------+--------|
+ * | Sym `  | Comp | GUI \ | Alt [ |   (   |    Space    |   )   | Alt ] | GUI + |  ??? | Sym =+ |
+ * `---------------------------------------------------------------------------------------------'
+ *
+ * |--------+------+-------+-------+-------+------+------+-------+-------+-------+------+--------|
+ * | Sym `  | Comp |   :   |GUI [{ | Alt ( |    Space    | Alt ) |GUI ]} |   +   | Foo  | Sym  = |
+ *
+  * Only missing: top row syms (!@#$%^&*) plus \ | ` ~ &
  * 8-bit keys: - = ; ` \     \ ~
  * Unshifted syms: ` - = ; [ ] \
  * Important shifted syms: : ( ) * _ +
  */
 [_QWERTY] = {
   /* {RAISE,KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,     KC_O,    KC_P,    RAISE}, */
-  {NAV_ESC, KC_Q,   KC_W,   KC_E,    KC_R,   KC_T,  KC_Y,  KC_U,   KC_I,    KC_O,   KC_P,   NAV_BSPC},
-  {CTL_TAB, KC_A,   KC_S,   KC_D,    KC_F,   KC_G,  KC_H,  KC_J,   KC_K,    KC_L,   KC_QUOT,CTL_ENT },
-  {SFT_SCLN,KC_Z,   KC_X,   KC_C,    KC_V,   KC_B,  KC_N,  KC_M,   KC_COMM, KC_DOT, KC_SLSH,SFT_MINS},
-  {SYM_GRV, KC_MENU,KC_COLN,GUI_LBRC,KC_LALT,KC_SPC,KC_SPC,KC_RALT,GUI_RBRC,KC_PLUS,TG(_SYMNUM),SYM_EQL}
+  {NAV_ESC, KC_Q,   KC_W,    KC_E,    KC_R,   KC_T,  KC_Y,  KC_U,   KC_I,    KC_O,   KC_P,   NAV_BSPC},
+  {CTL_TAB, KC_A,   KC_S,    KC_D,    KC_F,   KC_G,  KC_H,  KC_J,   KC_K,    KC_L,   KC_QUOT,CTL_ENT },
+  {SFT_SCLN,KC_Z,   KC_X,    KC_C,    KC_V,   KC_B,  KC_N,  KC_M,   KC_COMM, KC_DOT, KC_SLSH,SFT_MINS},
+  {SYM_GRV, KC_MENU,GUI_BSLS,ALT_LBRC,KC_LPRN,KC_SPC,KC_SPC,KC_RPRN,ALT_RBRC,GUI_PLUS,TG(_SYMNUM),SYM_EQL}
+  /* {SYM_GRV, KC_MENU,KC_COLN,GUI_LBRC,KC_LALT,KC_SPC,KC_SPC,KC_RALT,GUI_RBRC,KC_PLUS,TG(_SYMNUM),SYM_EQL} */
+
   /* {SYM_EQL, KC_MENU,KC_COLN,GUI_LBRC,KC_LALT,KC_SPC,KC_SPC,KC_RALT,GUI_RBRC,KC_PLUS,BACKLIT,SYM_GRV} */
   /*{SYM_EQL, KC_MENU,KC_GRV, ALT_LPRN,GUI_LBRC, KC_SPC,  KC_SPC,  GUI_RBRC, ALT_LPRN, KC_BSLS, FOO,   SYM_AST}*/
   /* {SYMNUM, KC_MENU, KC_GRV,  GUI_LBRC,KC_LGUI, KC_SPC,  KC_SPC,  KC_RGUI, CTL_RBRC, KC_BSLS, SYMNUM,   SYMNUM} */
