@@ -5,8 +5,10 @@ keyboarding.  The philsophy is that you should never have to reach
 farther than one adjacent key.  It's still a QWERTY, but seriously
 improved.
 
-See the [2017 Open Source Bridge session](http://opensourcebridge.org/sessions/1988) and [slides](https://www.slideshare.net/secret/3oeMZCprt1mo1e) for
-more details.
+See the [2017 Open Source Bridge
+session](http://opensourcebridge.org/sessions/1988) and
+[slides](https://www.slideshare.net/secret/3oeMZCprt1mo1e) for more
+details.
 
 It is built completely on open source, leveraging
 the [QMK Firmware Toolkit](https://docs.qmk.fm/build_environment_setup.html).
@@ -30,7 +32,16 @@ See the [Getting Started Guide](GUIDE.md) for more details.
 
 ## Instructions
 
-1. Get yourself a Planck (or use something like [QWERKey](https://github.com/MicahElliott/qwerkey) with
+### Install toolchain on a Mac
+
+```sh
+brew install avrdude avr-gcc dfu-programmer
+```
+
+### Flash the firmware
+
+1. Get yourself a Planck (or use something like
+   [QWERKey](https://github.com/MicahElliott/qwerkey) with
    xmodmap/xcape)
 
 1. Install the QMK [prerequisites](https://docs.qmk.fm/build_environment_setup.html).
@@ -39,12 +50,11 @@ See the [Getting Started Guide](GUIDE.md) for more details.
 
 1. `cd qmk_firmware/keyboards/planck/keymaps/` and clone this repo
 
-1. Build/upload with `sudo make CONSOLE_ENABLE=yes debug_enable=true dfu`
+1. `cd` back up to the top level
+
+1. Build/upload with `make planck/rev4:zelda:flash`
 
 1. Tweak `keymap.c` to your heart's content
-
-1. Use `xtweak.sh` to enable parens on thumbs
-
 
 ## Use with TWMs
 
@@ -52,7 +62,6 @@ http://i3wm.org/docs/userguide.html#_default_keybindings
 
 A sample `i3config` file has been provided as a starting point for
 configuring i3.  Its mappings correspond to the diagram.
-
 
 ## More Features
 
@@ -86,12 +95,13 @@ configuring i3.  Its mappings correspond to the diagram.
 - Anki picture-cards for memorizing finger combos (future)
 
 Bonus:
+
 - All keychords can be one-handed
 - How-to usage videos (future)
 - Works well with [Firefox mouseless browsing plugin](https://addons.mozilla.org/en-US/firefox/addon/mouseless-browsing/)
 
 ## License
 
-Copyright © 2017 Woodpecker Makery (WPM) LLC
+Copyright © 2020 Woodpecker Makery (WPM) LLC
 
 Distributed under GPLv2/v3, same as QMK Firmware.
